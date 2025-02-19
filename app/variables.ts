@@ -19,13 +19,12 @@ string = false;
 
 string();
 
-
-const movies = ["Arrival", "Movie 1", "Movie 2" ]
+const movies = ["Arrival", "Movie 1", "Movie 2"];
 
 let foundMovie;
 
-for (const movie of movies){
-    if(movie === "Movie 1"){
-        foundMovie = movie
-    }
+for (const movie of movies) {
+  if (movie === "Movie 1") {
+    foundMovie = movie;
+  }
 }
