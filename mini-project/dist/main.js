@@ -1,15 +1,30 @@
 "use strict";
-console.log("Hello Mini Project");
-let header = document.getElementById("parent");
-console.log(header);
-const newDiv = document.createElement("div");
-console.log(newDiv);
-// Set properties (e.g., class, text content)
-newDiv.className = "new-class";
-newDiv.textContent = "Hello, this is a new div!";
-// Select the parent element where you want to append
+const body = document.querySelector("body");
+const button = document.querySelector("button");
+const header = document.getElementById("parent");
+const newDiv = document.createElement("input");
 const parentElement = document.getElementById("parent");
-// Append the new element to the parent
-if (parentElement) {
-    parentElement.appendChild(newDiv);
-}
+const todoListDiv = document.createElement("ol");
+const toDoListArray = [];
+body === null || body === void 0 ? void 0 : body.append(newDiv);
+body === null || body === void 0 ? void 0 : body.append(todoListDiv);
+newDiv.className = "new-input-class";
+button === null || button === void 0 ? void 0 : button.addEventListener("click", () => {
+    addToDoListItem(newDiv.value);
+});
+const addToDoListItem = (toDoItem) => {
+    const todoListItem = document.createElement("li");
+    toDoListArray.push(toDoItem);
+    let removeIndex = toDoListArray.lastIndexOf(toDoItem);
+    todoListItem.setAttribute("id", removeIndex.toString());
+    const removeItemButton = document.createElement("button");
+    removeItemButton.addEventListener("click", () => {
+        const itemToRemove = document.getElementById(removeIndex.toString());
+        if (todoListDiv && itemToRemove)
+            todoListDiv.removeChild(itemToRemove);
+    });
+    removeItemButton.textContent = "Remove Item";
+    todoListItem.textContent = toDoItem;
+    todoListItem === null || todoListItem === void 0 ? void 0 : todoListItem.append(removeItemButton);
+    todoListDiv === null || todoListDiv === void 0 ? void 0 : todoListDiv.append(todoListItem);
+};
