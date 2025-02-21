@@ -16,4 +16,4 @@ function leapYear(year: number): boolean {
   return isLeapYear;
 }
 
-console.log(leapYear(2003))
+console.log(leapYear(2003));
